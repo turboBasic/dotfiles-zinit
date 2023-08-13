@@ -1,0 +1,38 @@
+[advice]
+    skippedCherryPicks = false
+
+[lfs]
+    # include and exclude file globs for Git LFS
+    fetchExclude = *.bin,*.iso,*.zip,*.pdf
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[format]
+    pretty = h-shortdate-n-s
+
+[log]
+    date = format-local:%Y-%m-%d %H:%M
+
+[pretty]
+    h-shortDate-n-s = format:%C(auto)%h %C(blue)%cs %C(green)%aN %C(auto)%s%d
+    h-date-n-s = format:%C(auto)%h %C(blue)%cd %C(green)%aN %C(auto)%s%d
+    parse = format:%H%x09%cd%x09%aN%x09%s%x09%d
+
+[pull]
+    ff = only
+
+####
+
+[include]
+    path = default.gitconfig
+    path = work.gitconfig
+
+[includeIf "hasconfig:remote.*.url:https://github.com/turboBasic/**"]
+    path = private.gitconfig
+
+
+# vim: set ft=gitconfig:
