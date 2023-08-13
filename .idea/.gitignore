@@ -1,0 +1,17 @@
+# Default ignored files
+/shelf/
+/tasks.xml
+/workspace.xml
+*.iws
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+#
+aws.xml
+conventionalCommit.xml
+/inspectionProfiles/
+/codeStyles/
+misc.xml
+vcs.xml
