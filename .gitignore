@@ -1,0 +1,22 @@
+# secrets
+*.private.env.json
+
+# other project files
+http-client.env.json
+work.gitconfig
+
+# macOS files
+.DS_Store
+Desktop.ini
+._*
+Thumbs.db
+
+# Python files
+.venv
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# IDEA files
+#.idea/
