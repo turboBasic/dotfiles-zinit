@@ -84,6 +84,7 @@ setopt extended_history \
                 (( $+commands[gsed] )) || brew install gnu-sed
                 (( $+commands[gtar] )) || brew install gnu-tar
                 (( $+commands[aws] )) || brew install awscli
+                (( $+commands[diff-so-fancy] )) || brew install diff-so-fancy
                 (( $+commands[docker] )) || brew install --cask docker
                 (( $+commands[exa] )) || brew install exa
                 (( $+commands[jq] )) || brew install jq
