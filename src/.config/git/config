@@ -17,6 +17,8 @@
     newHighlight = green bold 22
 
 [core]
+    fsmonitor = true
+    untrackedcache = true
     pager = diff-so-fancy | LESS= less --no-init --tabs=4 --RAW-CONTROL-CHARS --quit-if-one-screen
 
 [interactive]
