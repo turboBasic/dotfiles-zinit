@@ -87,6 +87,7 @@ setopt extended_history \
                 (( $+commands[docker] )) || brew install --cask docker
                 (( $+commands[exa] )) || brew install exa
                 (( $+commands[jq] )) || brew install jq
+                (( $+commands[gman] )) || brew install man-db
                 (( $+commands[nvim] )) || brew install neovim
                 (( $+commands[pkg-config] )) || brew install pkg-config
                 (( $+commands[rg] )) || brew install ripgrep
@@ -102,7 +103,10 @@ setopt extended_history \
 
                 local homebrew_prefix=${HOMEBREW_PREFIX-$(brew --prefix)}
                 local i j files symlinks
-                symlinks=( $homebrew_prefix/opt/*/libexec/gnubin )
+                symlinks=(
+                    $homebrew_prefix/opt/*/libexec/gnubin
+                    $homebrew_prefix/opt/man-db/libexec/bin
+                )
                 for i in $symlinks; do
                     files=( $(find "$i" -mindepth 1 -not -type d) )
                     for j in $files; do
@@ -110,13 +114,13 @@ setopt extended_history \
                     done
                 done
 
-                cat <<-\'EOF\' > brew-essential-formulae.zsh
-                    for i in $homebrew_prefix/opt/*/libexec/gnuman(N) $homebrew_prefix/opt/curl/share/man(N); do
+                cat <<- "EOF" > brew-essential-formulae.zsh
+                    for i in $HOMEBREW_PREFIX/opt/*/libexec/gnuman(N) $HOMEBREW_PREFIX/opt/curl/share/man(N); do
                         manpath[1,0]=$i
                     done
+                    ZINIT[LIST_COMMAND]="exa --color=always --tree --icons -L3"
 				EOF
             ' \
-            atload='ZINIT[LIST_COMMAND]="exa --color=always --tree --icons -L3"' \
         zdharma-continuum/null
 }
 
