@@ -94,6 +94,7 @@ setopt extended_history \
                 (( $+commands[rg] )) || brew install ripgrep
                 (( $+commands[tldr] )) || brew install tldr
                 (( $+commands[tree] )) || brew install tree
+                (( $+commands[yq] )) || brew install yq
                 (( $+commands[zstd] )) || brew install zstd
                 brew list curl &> /dev/null || brew install curl
                 brew list font-fira-code-nerd-font &> /dev/null || {
@@ -122,6 +123,8 @@ setopt extended_history \
                     ZINIT[LIST_COMMAND]="exa --color=always --tree --icons -L3"
 				EOF
             ' \
+            atpull='%atclone' \
+            run-atpull \
         zdharma-continuum/null
 }
 
@@ -141,6 +144,8 @@ setopt extended_history \
         zdharma-continuum/zinit-annex-submods \
         zdharma-continuum/zinit-annex-bin-gem-node \
         @sharkdp \
+            id-as='aws-helpers' \
+        https://gist.githubusercontent.com/turboBasic/b4e893d23586f620c91fb9883c31939c/raw/aws.zsh \
             id-as='generate-ls-colors' \
             pick='colors.sh' \
             nocompile='!' \
@@ -273,6 +278,10 @@ setopt extended_history \
             as='completion' \
             is-snippet \
         $HOMEBREW_PREFIX/share/zsh/site-functions/_rg \
+            \
+            as='completion' \
+            is-snippet \
+        $HOMEBREW_PREFIX/share/zsh/site-functions/_yq \
             \
             id-as='kubectl' \
             as='completion' \
