@@ -2,7 +2,7 @@
     skippedCherryPicks = false
 
 [color "diff"]
-    meta = 11
+    meta = brightyellow
     frag = magenta bold
     func = 146 bold
     commit = yellow bold
@@ -26,7 +26,7 @@
 
 [lfs]
     # include and exclude file globs for Git LFS
-    fetchExclude = *.bin,*.iso,*.zip,*.pdf
+    fetchExclude = *.bin,*.iso,*.zip,*.pdf,*.xls*,*.tar,*.tar.gz
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
@@ -51,7 +51,9 @@
 ####
 
 [include]
-    path = default.gitconfig
+    path = private.gitconfig
+
+[includeIf "gitdir:~/daimler/"]
     path = work.gitconfig
 
 [includeIf "hasconfig:remote.*.url:https://github.com/turboBasic/**"]
