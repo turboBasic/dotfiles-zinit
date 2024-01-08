@@ -194,6 +194,11 @@ setopt extended_history \
             atpull='%atclone' \
         direnv/direnv \
             \
+            as='null' \
+            src='nvm.sh' \
+            atinit='export NVM_DIR="$PWD"' \
+        nvm-sh/nvm \
+            \
             wait='1a' \
             as='null' \
             nocompile='!' \
